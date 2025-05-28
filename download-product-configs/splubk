@@ -1,0 +1,4 @@
+index=redis_logs sourcetype="redis_enterprise" 
+("CRDB sync failure" OR "replication lag" OR "conflict resolution" OR "link down" OR "sync error")
+| stats count by host, _time, log_level, message
+| sort -_time
